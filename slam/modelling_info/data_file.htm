@@ -1,0 +1,145 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 10 (filtered)">
+<title>Ute Data Parameters:</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;}
+h3
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-AU>
+
+<div class=Section1>
+
+<h1>Data Format Documentation</h1>
+
+<p class=MsoPlainText><u><span style='text-decoration:none'>&nbsp;</span></u></p>
+
+<p class=MsoNormal>The publisher of the data should provide the following
+files:</p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>Data File  </li>
+ <li class=MsoNormal>Files for each sensor</li>
+ <li class=MsoNormal>File with documentation for each sensor ( units / models
+     if necessary )</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The files should be in matlab of plain ascii format.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In the case of matlab the data should be included in a
+single file.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Data File format should consist of a an array of n (data
+points) rows by 3 columns as shown in the Figure 1. The first column will have
+the time stamp ordered in ascending order considering all the sensors that
+provide information in the experiment.. </p>
+
+<p class=MsoNormal>The second column will have an integer number with a unique
+sensor type. ( Please contact me and I can give you a sensor number to avoid
+repetitions ).</p>
+
+<p class=MsoNormal>The third column has an index with the location of the
+sensor data in the particular sensor array data.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=553
+height=415 src="data_file_files/image001.jpg"></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Figure 1</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>In the example presented in Figure 1 we
+have two sensors ( Sensor 1 and Sensor 2 ). There is a file with all the relevant
+information for each sensor. Documentation for these two files should be
+provided ( look at the existing examples in the web)</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Finally the data file provided has in the
+first column the times at which sensor activity was reported starting at time
+0.1. The first row indicates that at time 0.1 seconds sensor 1 reported
+information that can be accessed by reading the data stored in location 2 of
+sensor 1 array.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>The next row indicates that at 0.12 seconds
+information from sensor 2 was sampled and is available at location 4 of sensor
+2 array. </span></p>
+
+<p class=MsoNormal><span lang=EN-US>The navigation program will scan the data
+file array and incorporate only the sensor information that is required by the
+algorithm implemented by the user. For example a SLAM algorithm can be
+implemented using dead-reckoning and laser information. The estimated position
+can then be compared with the GPS information included in the file.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
