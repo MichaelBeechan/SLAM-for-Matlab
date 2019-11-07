@@ -1,0 +1,26 @@
+function t=minierror(f)%最小误差阈值法
+[r,c]=size(f);
+
+Ni=imhist(f);%计算直方图数组
+N=sum(Ni);%总像素点个数
+errormin=0;%误差最小值
+t=0;%阈值
+P0=0;P1=0;%P0,P1用于存放背景C0和目标C1各自的先验概率
+for k=2:255
+    u=dot([0:255],Ni/N);%图像的总平均灰度级
+    P0=sum(Ni(1:k)/N,Ni/N);%C0类像素所占面积的比例
+    P1=1-P0;%C1类像素所占面积的比例
+    if P0==0|P0==1
+        continue
+    end
+    u0=dot([0:t-1],)/P0;%C0类像素的平均灰度
+    u1=dot([t:255],Ni(t+1:256)/N)/P1;%C1类像素的平均灰度
+    det0=dot([[0:t-1]-u0(1:t)]^2,Ni(1:t)/N)/P0;%C0类的方差
+    det1=dot([[t:255]-u0(t+1:256)]^2,Ni(t+1:256)/N)/P1;%C1类的方差
+    J(t)=P0*log2(det0/(P0^2))+P1*log2(det1/(P1^2));%误差公式
+     %求出误差的最小值，最小时的那个值对应的t值存入errormin
+%     if dela(k)>delamax
+%         delamax=dela(k);
+%         threshold=k-1;
+%     end 
+end
